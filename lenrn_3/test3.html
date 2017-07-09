@@ -37,8 +37,9 @@
 function getData() {
     var data=[];
     var alist= document.getElementById('source').getElementsByTagName('li');
+    //需要获取下source下的li,不然会把整个页面中的li元素给添加进去
     for(var i=0;i<alist.length;i++){
-        var city = alist[i].innerHTML.split("空气质量：")[0];
+        var city = alist[i].innerHTML.slice(0,2);
         // slice分隔一个整体对象成数组的，将这个string分割开后获取第一个就是要的城市了
         var num = alist[i].children[0].innerHTML;
         data.push([city,num]);   
