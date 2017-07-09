@@ -36,11 +36,11 @@
  */
 function getData() {
     var data=[];
-    var a= document.getElementsByTagName("li");
-    for(i=0;i<a.length;i++){
-        var city = a[i].innerHTML.split("空气质量：")[0];
+    var alist= document.getElementById('source').getElementsByTagName('li');
+    for(var i=0;i<alist.length;i++){
+        var city = alist[i].innerHTML.split("空气质量：")[0];
         // slice分隔一个整体对象成数组的，将这个string分割开后获取第一个就是要的城市了
-        var num=a[i].children[0].innerHTML;
+        var num = alist[i].children[0].innerHTML;
         data.push([city,num]);   
 //        要添加二维数组就添加二维
     }
@@ -81,8 +81,8 @@ function btnHandle() {
   var aqiData = getData();
   aqiData = sortAqiData(aqiData);
   render(aqiData);
-    var button = document.getElementById('sort-btn');
-				button.disabled = 'true';
+//    var button = document.getElementById('sort-btn');
+//				button.disabled = 'true';
     //这两行代码是执行后不让再执行第二次了
     
 }
